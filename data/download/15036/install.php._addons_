@@ -1,0 +1,30 @@
+<?php
+
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+
+$sql = <<<EOF
+
+DROP TABLE IF EXISTS cdb_lucas_watermark;
+CREATE TABLE  cdb_lucas_watermark (
+`uid` MEDIUMINT( 8 ) UNSIGNED NOT NULL ,
+`iswater` TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT  '0',
+`local` TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT  '0',
+`isround` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+`size` TINYINT(2) UNSIGNED NOT NULL DEFAULT '10',
+`color` CHAR(10) NOT NULL DEFAULT '',
+`text` CHAR( 30 ) NOT NULL ,
+`ttf` CHAR( 8 ) NOT NULL DEFAULT  '',
+`file` CHAR( 100 ) NOT NULL ,
+`dateline` INT( 10 ) NOT NULL ,
+PRIMARY KEY (  `uid` )
+) TYPE = MYISAM ;
+
+EOF;
+
+runquery($sql);
+
+$finish = TRUE;
+
+?>

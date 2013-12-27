@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[lucas_watermark.plugin]]></item>
+	<item id="RevisionID"><![CDATA[15036]]></item>
+	<item id="SN"><![CDATA[2013122015N68bD8fff8]]></item>
+	<item id="RevisionDateline"><![CDATA[1366003056]]></item>
+	<item id="Data">
+		<item id="/discuz_plugin_lucas_watermark_SC_GBK.xml"><![CDATA[fed034e1f158ce4ed0c0cf4d13ef336b]]></item>
+		<item id="/discuz_plugin_lucas_watermark_SC_UTF8.xml"><![CDATA[3aea0ead944525b5210e32d98f1a261e]]></item>
+		<item id="/discuz_plugin_lucas_watermark_TC_BIG5.xml"><![CDATA[a2012768b656e9e5d1db0fa6f05ef9d9]]></item>
+		<item id="/discuz_plugin_lucas_watermark_TC_UTF8.xml"><![CDATA[e83d972db92099dc66502bc542d164ad]]></item>
+		<item id="/image/watermarkpreview.jpg"><![CDATA[5a1b8b60666a9343d0fa9cc64a578d2a]]></item>
+		<item id="/image/waterpic.png"><![CDATA[6e26133e676301589e06c398ffb6005b]]></item>
+		<item id="/image/waterpic_min.png"><![CDATA[d16a89215062eb9b521ebcce991cc851]]></item>
+		<item id="/image.class.php"><![CDATA[bdf6a4c3e519a1d831127c38f6fc9d3b]]></item>
+		<item id="/install.php"><![CDATA[bec7027ff572942963e749d9754e5cee]]></item>
+		<item id="/memcp.inc.php"><![CDATA[85ec3d18f12faad5974155c5822a1644]]></item>
+		<item id="/preview.inc.php"><![CDATA[c8d93ce4433659e60140b8b959dca7a9]]></item>
+		<item id="/table/index.htm"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/table/table_lucas_watermark.php"><![CDATA[977b1d97b8a57359684718fcac8f0452]]></item>
+		<item id="/template/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/template/memcp.php"><![CDATA[e197fd1a8eda00356e367e7c9ff5ac5a]]></item>
+		<item id="/ttf.inc.php"><![CDATA[b036d1402c11be1831cf5ce917d22495]]></item>
+		<item id="/uninstall.php"><![CDATA[b493c23f5166a349a97fbc1e738ce14d]]></item>
+		<item id="/upgrade.php"><![CDATA[9f0747fb57baf1cafa09f7948b32b989]]></item>
+		<item id="/upload.class.php"><![CDATA[d222d017970d177404b2ea6acaa8a7ca]]></item>
+		<item id="/watermark.class.php"><![CDATA[641f73138d3bb0ef91f2bda81bf3e0e9]]></item>
+		<item id="/watermark_upload.class.php"><![CDATA[402843bb919813388a3e74a66fb49e6f]]></item>
+	</item>
+</root>

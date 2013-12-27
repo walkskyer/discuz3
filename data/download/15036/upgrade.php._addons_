@@ -1,0 +1,18 @@
+<?php
+
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+
+$field = C::t('#lucas_watermark#lucas_watermark')->fetch_all_field();
+$table = DB::table('lucas_watermark');
+$sql = '';
+if (!$field['ttf']) {
+	$sql .= "ALTER TABLE  $table ADD  `ttf` CHAR( 8 ) NOT NULL DEFAULT  '' AFTER  `text`;\n";
+}
+
+if ($sql) {
+	runquery($sql);
+}
+
+$finish = true;

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3 Beta]]></item>
+	<item id="Time"><![CDATA[2013-04-15 12:29]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://127.0.0.1/x3/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[會員自定義水印]]></item>
+			<item id="identifier"><![CDATA[lucas_watermark]]></item>
+			<item id="description"><![CDATA[添加水印不是網站強制給會員方式，也可以是會員選擇給自己的圖片添加自己想要的水印。
+
+會員可以選擇是否給圖片添加水印。
+或者自由選擇位置添加文字，圖片水印。
+也可以添加自己圓角等效果。
+
+注意︰開啟本功能時，後台默認水印將失效。]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[lucas_watermark/]]></item>
+			<item id="copyright"><![CDATA[lucas]]></item>
+			<item id="version"><![CDATA[1.22]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[watermark]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[memcp]]></item>
+					<item id="menu"><![CDATA[我的水印]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[7]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[ttf]]></item>
+					<item id="menu"><![CDATA[字體上傳]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X3 Beta]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[是否開啟]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[isopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[啟用的版塊]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[forumid]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[39]]></item>
+					<item id="1"><![CDATA[2]]></item>
+					<item id="2"><![CDATA[40]]></item>
+					<item id="3"><![CDATA[42]]></item>
+					<item id="4"><![CDATA[41]]></item>
+					<item id="5"><![CDATA[43]]></item>
+				</item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[啟用的用戶組]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[groupid]]></item>
+				<item id="type"><![CDATA[groups]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[9]]></item>
+					<item id="1"><![CDATA[10]]></item>
+					<item id="2"><![CDATA[11]]></item>
+					<item id="3"><![CDATA[12]]></item>
+					<item id="4"><![CDATA[13]]></item>
+					<item id="5"><![CDATA[14]]></item>
+					<item id="6"><![CDATA[15]]></item>
+					<item id="7"><![CDATA[20]]></item>
+					<item id="8"><![CDATA[16]]></item>
+					<item id="9"><![CDATA[17]]></item>
+					<item id="10"><![CDATA[18]]></item>
+					<item id="11"><![CDATA[19]]></item>
+					<item id="12"><![CDATA[1]]></item>
+					<item id="13"><![CDATA[2]]></item>
+					<item id="14"><![CDATA[3]]></item>
+					<item id="15"><![CDATA[4]]></item>
+					<item id="16"><![CDATA[5]]></item>
+					<item id="17"><![CDATA[6]]></item>
+					<item id="18"><![CDATA[7]]></item>
+					<item id="19"><![CDATA[8]]></item>
+				</item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[字體]]></item>
+				<item id="description"><![CDATA[保留項，此項請務必不要修改！]]></item>
+				<item id="variable"><![CDATA[ttf]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="group_nopremission"><![CDATA[您的用戶組暫不允許\使用此功\能！]]></item>
+				<item id="not_empty"><![CDATA[這兩項不能同時為空！]]></item>
+				<item id="success"><![CDATA[數據更新成功\！]]></item>
+				<item id="no_setting"><![CDATA[<strong>您還沒有設置個人水印配置，點擊<a href="home.php?mod=spacecp&ac=plugin&id=lucas_watermark:memcp">這里</a>去設置。</strong>]]></item>
+				<item id="setting"><![CDATA[</strong>點擊<a href="home.php?mod=spacecp&ac=plugin&id=lucas_watermark:memcp">這里</a>修改我的水印設置。]]></item>
+				<item id="pre_settging_y"><![CDATA[個人水印生效中，]]></item>
+				<item id="pre_settging_n"><![CDATA[個人水印暫時關閉中，]]></item>
+				<item id="upload_failed"><![CDATA[上傳失敗！]]></item>
+				<item id="unimgext"><![CDATA[不是圖片格式！]]></item>
+				<item id="too_big"><![CDATA[圖片不能大于100K！]]></item>
+				<item id="save_failed"><![CDATA[保存失敗！]]></item>
+				<item id="del_failed"><![CDATA[刪除失敗！]]></item>
+				<item id="font"><![CDATA[字體]]></item>
+				<item id="font_inited"><![CDATA[字體初始化完成！]]></item>
+				<item id="not_full"><![CDATA[提交內容不完整！]]></item>
+				<item id="not_ttf"><![CDATA[文件只能是ttf格式！]]></item>
+				<item id="bg_tips"><![CDATA[如果需要有中文或者其他字體，請在這兒上傳字體包，格式為ttf。上傳後需要後台更新緩存，前台才會生效！字體支持的格式必須是UTF8才會正常生成。]]></item>
+				<item id="font_upload"><![CDATA[字體包上傳]]></item>
+				<item id="font_name"><![CDATA[字體名稱]]></item>
+				<item id="font_file"><![CDATA[文件]]></item>
+				<item id="no_ttf"><![CDATA[只能是ttf格式的字體文件。]]></item>
+				<item id="ttf_list"><![CDATA[字體列表]]></item>
+				<item id="need_font"><![CDATA[尚無字體包，請上傳！]]></item>
+				<item id="ttf_name"><![CDATA[字體名稱]]></item>
+				<item id="ttf_path"><![CDATA[字體路徑]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="my_watermark"><![CDATA[我的水印]]></item>
+				<item id="is_open"><![CDATA[是否開啟我的水印︰]]></item>
+				<item id="local"><![CDATA[水印位置︰]]></item>
+				<item id="text"><![CDATA[水印文字內容︰]]></item>
+				<item id="color"><![CDATA[水印文字顏色︰]]></item>
+				<item id="size"><![CDATA[水印文字大小︰]]></item>
+				<item id="file"><![CDATA[圖片水印地址︰]]></item>
+				<item id="is_round"><![CDATA[是否開啟圓角水印︰]]></item>
+				<item id="tip_file"><![CDATA[(文件必須是圖片文件，且小于100K，支持png，gif透明。)]]></item>
+				<item id="tip_text"><![CDATA[(填入您想添加的文字水印。)]]></item>
+				<item id="yes"><![CDATA[是]]></item>
+				<item id="no"><![CDATA[否]]></item>
+				<item id="preview"><![CDATA[預覽]]></item>
+				<item id="save"><![CDATA[保存]]></item>
+				<item id="ld"><![CDATA[左下方]]></item>
+				<item id="rd"><![CDATA[右下方]]></item>
+				<item id="mi"><![CDATA[正中央]]></item>
+				<item id="lu"><![CDATA[左上方]]></item>
+				<item id="ru"><![CDATA[右上方]]></item>
+				<item id="ttf"><![CDATA[水印字體︰]]></item>
+				<item id="ttf_notice"><![CDATA[由于站點沒有上傳字體，您暫時不能使用字體水印。]]></item>
+				<item id="my_icon"><![CDATA[我的水印︰]]></item>
+				<item id="del"><![CDATA[刪除]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+		<item id="upgradefile"><![CDATA[upgrade.php]]></item>
+	</item>
+</root>
