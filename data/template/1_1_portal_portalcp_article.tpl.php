@@ -1,8 +1,8 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('portalcp_article');
 0
-|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/home/editor_image_menu.htm', 1388112731, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
-|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/common/seccheck.htm', 1388112731, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
-|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/common/upload.htm', 1388112731, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
+|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/home/editor_image_menu.htm', 1389252279, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
+|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/common/seccheck.htm', 1389252279, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
+|| checktplrefresh('./template/default/portal/portalcp_article.htm', './template/default/common/upload.htm', 1389252279, '1', './data/template/1_1_portal_portalcp_article.tpl.php', './template/default', 'portal/portalcp_article')
 ;?><?php include template('common/header'); if($op == 'delete') { ?>
 
 <h3 class="flb">
@@ -120,7 +120,7 @@ make_html('portal.php?mod=view&aid=<?php echo $aid;?>', $('makehtml_'));
 <h1 class="mbm bbs mt"><?php if(!empty($aid)) { ?>编辑文章<?php } else { ?>发布文章<?php } ?></h1>
 <script src="<?php echo $_G['setting']['jspath'];?>calendar.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <form method="post" autocomplete="off" id="articleform" action="portal.php?mod=portalcp&amp;ac=article<?php if($_GET['modarticlekey']) { ?>&amp;modarticlekey=<?php echo $_GET['modarticlekey'];?><?php } ?>" enctype="multipart/form-data">
-<?php if(!empty($_G['setting']['pluginhooks']['portalcp_top'])) echo $_G['setting']['pluginhooks']['portalcp_top'];?>
+<?php echo '<hook>[string portalcp_top]</hook>';if(!empty($_G['setting']['pluginhooks']['portalcp_top'])) echo $_G['setting']['pluginhooks']['portalcp_top'];?>
 <div class="dopt cl">
 <span class="z mtn" style="width: 80px;">标　　题:&nbsp;</span>
 <input type="text" name="title" id="title" class="px" value="<?php echo $article['title'];?>" size="80" />
@@ -204,7 +204,7 @@ make_html('portal.php?mod=view&aid=<?php echo $aid;?>', $('makehtml_'));
 </dl>
 <div><input type="hidden" id="conver" name="conver" value="" /></div>
 </div>
-<?php if(!empty($_G['setting']['pluginhooks']['portalcp_extend'])) echo $_G['setting']['pluginhooks']['portalcp_extend'];?>
+<?php echo '<hook>[string portalcp_extend]</hook>';if(!empty($_G['setting']['pluginhooks']['portalcp_extend'])) echo $_G['setting']['pluginhooks']['portalcp_extend'];?>
 </div>
 
 <div class="pbw">
@@ -433,9 +433,9 @@ debug: false
 });
 </script>
 <?php } else { if($_G['basescript'] == 'home') { ?>
-<?php if(!empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend'])) echo $_G['setting']['pluginhooks']['spacecp_blog_upload_extend'];?>
+<?php echo '<hook>[string spacecp_blog_upload_extend]</hook>';if(!empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend'])) echo $_G['setting']['pluginhooks']['spacecp_blog_upload_extend'];?>
 <?php } elseif($_G['basescript'] == 'portal') { ?>
-<?php if(!empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])) echo $_G['setting']['pluginhooks']['portalcp_top_upload_extend'];?>
+<?php echo '<hook>[string portalcp_top_upload_extend]</hook>';if(!empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])) echo $_G['setting']['pluginhooks']['portalcp_top_upload_extend'];?>
 <?php } } ?>
 <script type="text/javascript">
 function switchImagebutton(btn) {
@@ -513,7 +513,7 @@ opObj.style.display = '';
 <div style="border:1px solid #C5C5C5;height:400px;"><iframe src="home.php?mod=editor&amp;charset=<?php echo CHARSET;?>&amp;allowhtml=1&amp;isportal=1" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:100%;height:100%;position:relative;"></iframe></div>
 </div>
 
-<?php if(!empty($_G['setting']['pluginhooks']['portalcp_middle'])) echo $_G['setting']['pluginhooks']['portalcp_middle'];?>
+<?php echo '<hook>[string portalcp_middle]</hook>';if(!empty($_G['setting']['pluginhooks']['portalcp_middle'])) echo $_G['setting']['pluginhooks']['portalcp_middle'];?>
 
 <div class="bm bml">
 <div class="bm_h cl">
@@ -540,7 +540,7 @@ opObj.style.display = '';
 </ul>
 </div>
 
-<?php if(!empty($_G['setting']['pluginhooks']['portalcp_bottom'])) echo $_G['setting']['pluginhooks']['portalcp_bottom'];?>
+<?php echo '<hook>[string portalcp_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['portalcp_bottom'])) echo $_G['setting']['pluginhooks']['portalcp_bottom'];?>
 
 <?php if($secqaacheck || $seccodecheck) { ?><?php
 $sectpl = <<<EOF
