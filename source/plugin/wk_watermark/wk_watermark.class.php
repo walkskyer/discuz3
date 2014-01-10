@@ -42,8 +42,8 @@ class plugin_wk_watermark{
         }elseif($_GET['operation'] == 'album' && $this->vars['wk_album']) {
             require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/wk_album_upload.class.php';
             wk_album_upload();
-        }elseif($_GET['mod'] == 'post'){
-            require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
-        }
+        }/*elseif($_GET['mod'] == 'post'){
+            //require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
+        }*/
     }
 }
