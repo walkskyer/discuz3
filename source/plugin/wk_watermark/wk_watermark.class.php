@@ -24,11 +24,14 @@ class plugin_wk_watermark{
         global $_G;
         if(!$this->vars['wk_watermark_on']) return;
         require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/function/function_wk.php';
-        //if (empty($_FILES) || $_GET['mod'] != 'swfupload' || $_GET['action'] != 'swfupload') return false;
+        if($_GET['mod'] == 'post' && $this->vars['wk_forum']){
+            //require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
+        }
+        if (empty($_FILES) || $_GET['mod'] != 'swfupload' || $_GET['action'] != 'swfupload') return false;
         $_G['uid'] = intval($_POST['uid']);
-        /*if((empty($_G['uid']) && $_GET['operation'] != 'upload') || $_POST['hash'] != md5(substr(md5($_G['config']['security']['authkey']), 8).$_G['uid'])) {
+        if((empty($_G['uid']) && $_GET['operation'] != 'upload') || $_POST['hash'] != md5(substr(md5($_G['config']['security']['authkey']), 8).$_G['uid'])) {
             exit;
-        }*/
+        }
         if($_GET['operation'] == 'upload' && $this->vars['wk_forum']) {
             if(empty($_GET['simple'])) {
                 $_FILES['Filedata']['name'] = addslashes(diconv(urldecode($_FILES['Filedata']['name']), 'UTF-8'));
@@ -42,8 +45,6 @@ class plugin_wk_watermark{
         }elseif($_GET['operation'] == 'album' && $this->vars['wk_album']) {
             require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/wk_album_upload.class.php';
             wk_album_upload();
-        }/*elseif($_GET['mod'] == 'post'){
-            //require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
-        }*/
+        }
     }
 }
