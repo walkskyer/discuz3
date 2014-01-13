@@ -347,7 +347,6 @@ if($_GET['action'] == 'newthread' || $_GET['action'] == 'newtrade') {
 	$navtitle .= ' - '.$thread['subject'].' - '.$_G['forum']['name'];
 	require_once wk_libfile('post/editpost', 'include');
 }
-exit;
 function check_allow_action($action = 'allowpost') {
 	global $_G;
 	if(isset($_G['forum'][$action]) && $_G['forum'][$action] == -1) {

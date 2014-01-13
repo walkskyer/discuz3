@@ -26,6 +26,7 @@ class plugin_wk_watermark{
         require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/function/function_wk.php';
         if($_GET['mod'] == 'post' && $this->vars['wk_forum'] && in_array($_GET['action'],array('newthread','newreply','editpost'))){
             require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
+            exit;
         }
         if (empty($_FILES) || $_GET['mod'] != 'swfupload' || $_GET['action'] != 'swfupload') return false;
         $_G['uid'] = intval($_POST['uid']);
