@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3.1]]></item>
-	<item id="Time"><![CDATA[2013-12-31 16:36]]></item>
+	<item id="Time"><![CDATA[2014-01-13 14:26]]></item>
 	<item id="From"><![CDATA[Discuz3测试！！ (http://discuz3.zwj/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -10,7 +10,7 @@
 			<item id="adminid"><![CDATA[1]]></item>
 			<item id="name"><![CDATA[超级水印]]></item>
 			<item id="identifier"><![CDATA[wk_watermark]]></item>
-			<item id="description"><![CDATA[基于discuz现有水印功能，目前可对论坛、门户、相册的图片的缩略图添加水印。可分别选择开启各个水印的功能。]]></item>
+			<item id="description"><![CDATA[基于discuz现有水印功能，目前可对论坛、门户、相册的图片的缩略图添加水印。可分别选择开启各个水印的功能。可设置超大水印，该插件会根据实际图片大小对水印进行缩放。]]></item>
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[wk_watermark/]]></item>
 			<item id="copyright"><![CDATA[walkskyer]]></item>
