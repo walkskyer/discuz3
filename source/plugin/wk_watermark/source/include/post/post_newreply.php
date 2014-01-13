@@ -310,7 +310,7 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 
 } else {
 
-	$modpost = C::m('forum_post', $_G['tid']);
+	$modpost = C::m('#wk_watermark#forum_post', $_G['tid']);
 	$bfmethods = $afmethods = array();
 
 

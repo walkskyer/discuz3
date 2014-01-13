@@ -338,16 +338,16 @@ $navtitle = lang('core', 'title_'.$_GET['action'].'_post');
 if($_GET['action'] == 'newthread' || $_GET['action'] == 'newtrade') {
 	loadcache('groupreadaccess');
 	$navtitle .= ' - '.$_G['forum']['name'];
-	require_once libfile('post/newthread', 'include');
+	require_once wk_libfile('post/newthread', 'include');
 } elseif($_GET['action'] == 'reply') {
 	$navtitle .= ' - '.$thread['subject'].' - '.$_G['forum']['name'];
-	require_once libfile('post/newreply', 'include');
+	require_once wk_libfile('post/newreply', 'include');
 } elseif($_GET['action'] == 'edit') {
 	loadcache('groupreadaccess');
 	$navtitle .= ' - '.$thread['subject'].' - '.$_G['forum']['name'];
-	require_once libfile('post/editpost', 'include');
+	require_once wk_libfile('post/editpost', 'include');
 }
-
+exit;
 function check_allow_action($action = 'allowpost') {
 	global $_G;
 	if(isset($_G['forum'][$action]) && $_G['forum'][$action] == -1) {

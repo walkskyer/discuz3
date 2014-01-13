@@ -167,7 +167,7 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = ar
 			}
 		}
 		if($_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark']) || !$_G['setting']['thumbdisabledmobile']) {
-			require_once libfile('class/wk_image');
+			require_once wk_libfile('class/wk_image');
 			$image = new wk_image;
 		}
 		if(!empty($_GET['albumaid'])) {
