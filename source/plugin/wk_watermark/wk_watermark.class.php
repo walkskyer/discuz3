@@ -24,7 +24,7 @@ class plugin_wk_watermark{
         global $_G;
         if(!$this->vars['wk_watermark_on']) return;
         require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/function/function_wk.php';
-        if($_GET['mod'] == 'post' && $this->vars['wk_forum'] && in_array($_GET['action'],array('newthread','newreply','editpost'))){
+        if($_GET['mod'] == 'post' && $this->vars['wk_forum'] && in_array($_GET['action'],array('newtrade','newthread','edit','reply'))){
             require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/source/module/forum/forum_post.php';
             exit;
         }
