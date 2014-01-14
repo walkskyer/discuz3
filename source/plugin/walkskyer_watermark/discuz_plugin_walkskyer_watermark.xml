@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3.1]]></item>
-	<item id="Time"><![CDATA[2014-01-13 16:02]]></item>
+	<item id="Time"><![CDATA[2014-01-14 10:17]]></item>
 	<item id="From"><![CDATA[Discuz3测试！！ (http://discuz3.zwj/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -36,15 +36,15 @@
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[0]]></item>
-				<item id="title"><![CDATA[相册水印]]></item>
-				<item id="description"><![CDATA[是否允许插件接管相册水印功能。]]></item>
-				<item id="variable"><![CDATA[wk_album]]></item>
+				<item id="title"><![CDATA[开启水印功能]]></item>
+				<item id="description"><![CDATA[是否开启水印功能，开启后，水印插件将接管系统水印功能。]]></item>
+				<item id="variable"><![CDATA[wk_watermark_on]]></item>
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="1">
-				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="displayorder"><![CDATA[1]]></item>
 				<item id="title"><![CDATA[论坛水印]]></item>
 				<item id="description"><![CDATA[是否允许插件接管论坛水印功能。]]></item>
 				<item id="variable"><![CDATA[wk_forum]]></item>
@@ -53,7 +53,7 @@
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="2">
-				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="displayorder"><![CDATA[2]]></item>
 				<item id="title"><![CDATA[门户水印]]></item>
 				<item id="description"><![CDATA[是否允许插件接管门户水印功能。]]></item>
 				<item id="variable"><![CDATA[wk_portal]]></item>
@@ -62,10 +62,10 @@
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="3">
-				<item id="displayorder"><![CDATA[0]]></item>
-				<item id="title"><![CDATA[开启水印功能]]></item>
-				<item id="description"><![CDATA[是否开启水印功能，开启后，水印插件将接管系统水印功能。]]></item>
-				<item id="variable"><![CDATA[wk_watermark_on]]></item>
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[相册水印]]></item>
+				<item id="description"><![CDATA[是否允许插件接管相册水印功能。]]></item>
+				<item id="variable"><![CDATA[wk_album]]></item>
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
