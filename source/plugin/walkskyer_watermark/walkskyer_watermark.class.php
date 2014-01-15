@@ -28,11 +28,16 @@ class plugin_walkskyer_watermark{
             require_once DISCUZ_ROOT.'./source/plugin/walkskyer_watermark/source/module/forum/forum_post.php';
             exit;
         }
+
         if (empty($_FILES) || $_GET['mod'] != 'swfupload' || $_GET['action'] != 'swfupload') return false;
+        $picExt=array('.jpg','.jpeg','.png','.gif','.bmp');
+        if(!in_array($_GET['filetype'],$picExt)) return false;
+
         $_G['uid'] = intval($_POST['uid']);
         if((empty($_G['uid']) && $_GET['operation'] != 'upload') || $_POST['hash'] != md5(substr(md5($_G['config']['security']['authkey']), 8).$_G['uid'])) {
             exit;
         }
+
         if($_GET['operation'] == 'upload' && $this->vars['wk_forum']) {
             if(empty($_GET['simple'])) {
                 $_FILES['Filedata']['name'] = addslashes(diconv(urldecode($_FILES['Filedata']['name']), 'UTF-8'));
