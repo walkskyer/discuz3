@@ -119,7 +119,7 @@ class wk_forum_upload extends forum_upload{
             }
             if($_G['setting']['thumbsource'] || $_G['setting']['thumbstatus']) {
                 require_once libfile('class/image');
-                require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/wk_image.class.php';
+                require_once wk_libfile('class/wk_image');;
                 $image = new wk_image;
             }
             if($_G['setting']['thumbsource'] && $_G['setting']['sourcewidth'] && $_G['setting']['sourceheight']) {

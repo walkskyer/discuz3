@@ -58,7 +58,7 @@ function wk_portal_upload(){
     }
     if(!$errorcode) {
         if($attach['isimage'] && empty($_G['setting']['portalarticleimgthumbclosed'])) {
-            require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/wk_image.class.php';
+            require_once wk_libfile('class/wk_image');
             $image = new wk_image;
             $thumbimgwidth = $_G['setting']['portalarticleimgthumbwidth'] ? $_G['setting']['portalarticleimgthumbwidth'] : 300;
             $thumbimgheight = $_G['setting']['portalarticleimgthumbheight'] ? $_G['setting']['portalarticleimgthumbheight'] : 300;

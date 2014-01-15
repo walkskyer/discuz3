@@ -130,7 +130,7 @@ function wk_pic_save($FILE, $albumid, $title, $iswatermark = true, $catid = 0) {
 
     $new_name = $upload->attach['target'];
 
-    require_once DISCUZ_ROOT.'./source/plugin/wk_watermark/wk_image.class.php';
+    require_once wk_libfile('class/wk_image');
     $image = new wk_image;
     $result = $image->Thumb($new_name, '', 140, 140, 1);
     $thumb = empty($result)?0:1;

@@ -9,9 +9,13 @@ if(!defined('IN_DISCUZ')) {
  * Time: 下午3:08
  */
 class wk_image extends image{
+    protected $ws;
     public function __construct(){
         global $_G;
         parent::image();
+        $this->ws=$_G['cache']['plugin']['walkskyer_watermark'];
+        if($this->ws['wk_rate']==0 || $this->ws['wk_rate']>100)
+            $this->ws['wk_rate']=50;
     }
 
     function Watermark_GD($type = 'forum') {
@@ -34,17 +38,17 @@ class wk_image extends image{
                 return 0;
             }
             list($logo_w, $logo_h) = $watermarkinfo;
-            if(($this->imginfo['width'] - $logo_w) < 10 || ($this->imginfo['height'] - $logo_h) < 10){
-                $wm_dst_w=$this->imginfo['width']/2;
-                $wm_dst_h = (int)$wm_dst_w/$logo_w*$logo_h;
-                $target = imagecreatetruecolor($wm_dst_w, $wm_dst_h);
-                if($this->param['watermarktype'][$type] == 'png') imagefill($target, 0, 0, imagecolorallocatealpha($target, 0, 0, 0, 127));
-                imagecopyresampled($target,$watermark_logo,0,0,0,0,$wm_dst_w,$wm_dst_h,$logo_w,$logo_h);
-                if($this->param['watermarktype'][$type] == 'png') imagesavealpha($target, true);
-                $watermark_logo =$target;
-                $logo_w=$wm_dst_w;
-                $logo_h=$wm_dst_h;
-            }
+            //if(($this->imginfo['width'] - $logo_w) < 10 || ($this->imginfo['height'] - $logo_h) < 10){
+            $wm_dst_w=$this->imginfo['width']*((int)$this->ws['wk_rate'])/100;
+            $wm_dst_h = (int)$wm_dst_w/$logo_w*$logo_h;
+            $target = imagecreatetruecolor($wm_dst_w, $wm_dst_h);
+            if($this->param['watermarktype'][$type] == 'png') imagefill($target, 0, 0, imagecolorallocatealpha($target, 0, 0, 0, 127));
+            imagecopyresampled($target,$watermark_logo,0,0,0,0,$wm_dst_w,$wm_dst_h,$logo_w,$logo_h);
+            if($this->param['watermarktype'][$type] == 'png') imagesavealpha($target, true);
+            $watermark_logo =$target;
+            $logo_w=$wm_dst_w;
+            $logo_h=$wm_dst_h;
+            //}
         } else {
             if(!function_exists('imagettfbbox') || !function_exists('imagettftext') || !function_exists('imagecolorallocate')) {
                 return -4;
@@ -84,7 +88,13 @@ class wk_image extends image{
                     break;
                 case 5:
                     $x = ($this->imginfo['width'] - $logo_w) / 2;
-                    $y = ($this->imginfo['height'] - $logo_h) / 2;
+                    if($this->ws['wk_5_position'] == 0)
+                        $y = ($this->imginfo['height'] - $logo_h) / 2;
+                    elseif($this->ws['wk_5_position']==1){
+                        $y = ($this->imginfo['height'] - $logo_h) / 4;
+                    }elseif($this->ws['wk_5_position']==-1){
+                        $y = ($this->imginfo['height'] - $logo_h) *3/ 4;
+                    }
                     break;
                 case 6:
                     $x = $this->imginfo['width'] - $logo_w;
@@ -143,6 +153,7 @@ class wk_image extends image{
         return 1;
     }
     function Watermark_IM($type = 'forum') {
+
         switch($this->param['watermarkstatus'][$type]) {
             case 1:
                 $gravity = 'NorthWest';
@@ -178,10 +189,21 @@ class wk_image extends image{
             if(!$waterMark){
                 $waterMark=$this->param['watermarkfile'][$type];
             }
+            if($gravity == 'Center'){
+                $imginfo=$this->wk_image_size_im($waterMark);
+                $logoWH=$this->wk_image_size_im($this->target);
+                if($this->ws['wk_5_position'] == 0)
+                    $geometry = '';
+                elseif($this->ws['wk_5_position']==1){
+                    $geometry = ' -geometry +0+'.($imginfo['height'] - $logoWH['height']) / 3;
+                }elseif($this->ws['wk_5_position']==-1){
+                    $geometry = ' -geometry +0-'.($imginfo['height'] - $logoWH['height']) / 3;
+                }
+            }
             $exec_str = $this->param['imageimpath'].'/composite'.
                 ($this->param['watermarktype'][$type] != 'png' && $this->param['watermarktrans'][$type] != '100' ? ' -watermark '.$this->param['watermarktrans'][$type] : '').
                 ' -quality '.$this->param['watermarkquality'][$type].
-                ' -gravity '.$gravity.
+                ' -gravity '.$gravity.$geometry.
                 ' '.$waterMark.' '.$this->source.' '.$this->target;
         } else {
             $watermarktextcvt = str_replace(array("\n", "\r", "'"), array('', '', '\''), pack("H*", $this->param['watermarktext']['text'][$type]));
@@ -225,12 +247,12 @@ class wk_image extends image{
         }
         $srcWH=$this->wk_image_size_im($source);
         $dstWH=$this->wk_image_size_im($target);
-        if($srcWH['width']>$dstWH['width']){
-            $srcW = $dstWH['width']/2;
-            $srcH = $srcW/$srcWH['width']*$srcWH['height'];
-        }else{
+        /*if($srcWH['width']>$dstWH['width']){*/
+        $srcW = $dstWH['width']*((int)$this->ws['wk_rate'])/100;
+        $srcH = $srcW/$srcWH['width']*$srcWH['height'];
+        /*}else{
             return false;
-        }
+        }*/
         $dstFile=DISCUZ_ROOT."./data/plugindata/wk_watermark.resize.".fileext($source);
         exec($this->param['imageimpath']."/convert -resize {$srcW} ".$source." $dstFile");
         return is_file($dstFile)?$dstFile:false;
