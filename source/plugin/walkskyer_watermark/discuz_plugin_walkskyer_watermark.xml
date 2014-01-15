@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3.1]]></item>
-	<item id="Time"><![CDATA[2014-01-14 10:17]]></item>
+	<item id="Time"><![CDATA[2014-01-15 15:05]]></item>
 	<item id="From"><![CDATA[Discuz3测试！！ (http://discuz3.zwj/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -69,6 +69,26 @@
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[水印比例]]></item>
+				<item id="description"><![CDATA[水印相对图片的比例，如50，则缩略图宽度将设置为目标图片的50%。0不使用此设置。]]></item>
+				<item id="variable"><![CDATA[wk_rate]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[50]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[#5位置水印微调]]></item>
+				<item id="description"><![CDATA[系统水印位置设置在#5时，可微调水印位置靠上或靠下。]]></item>
+				<item id="variable"><![CDATA[wk_5_position]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[0 = 不操作
+1 = 靠上
+-1 = 靠下]]></item>
 			</item>
 		</item>
 	</item>
