@@ -152,7 +152,7 @@ if(!submitcheck('topicsubmit', 1, $seccodecheck, $secqaacheck)) {
 			C::t('forum_forum')->update_commoncredits(intval($mygroupid[0]));
 		}
 	}
-	$modthread = C::m('#wk_watermark#forum_thread');
+	$modthread = C::m('#walkskyer_watermark#forum_thread');
 	$bfmethods = $afmethods = array();
 
 	$params = array(

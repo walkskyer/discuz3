@@ -305,7 +305,7 @@ if(!submitcheck('editsubmit',1)) {
 			$message .= '[groupid='.intval($mygid).']'.$mygname.'[/groupid]';
 		}
 	}
-	$modpost = C::m('#wk_watermark#forum_post', $_G['tid'], $pid);
+	$modpost = C::m('#walkskyer_watermark#forum_post', $_G['tid'], $pid);
 
 	$modpost->param('redirecturl', "forum.php?mod=viewthread&tid=$_G[tid]&page=$_GET[page]&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : '')."#pid$pid");
 
