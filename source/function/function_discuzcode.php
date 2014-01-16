@@ -424,7 +424,8 @@ function parsemedia($params, $url) {
 	}
 	if(in_array(count($params), array(3, 4))) {
 		$type = $params[0];
-		$url = htmlspecialchars(str_replace(array('<', '>'), '', str_replace('\\"', '\"', $url)));
+		//$url = htmlspecialchars(str_replace(array('<', '>'), '', str_replace('\\"', '\"', $url)));
+        $url = str_replace(array('<', '>'), '', str_replace('\\"', '\"', $url));
 		switch($type) {
 			case 'mp3':
 			case 'wma':
