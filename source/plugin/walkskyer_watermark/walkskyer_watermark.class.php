@@ -30,7 +30,7 @@ class plugin_walkskyer_watermark{
         }
 
         if (empty($_FILES) || $_GET['mod'] != 'swfupload' || $_GET['action'] != 'swfupload') return false;
-        $picExt=array('.jpg','.jpeg','.png','.gif','.bmp');
+        $picExt=array('.jpg','.jpeg','.png','.bmp');
         if(!in_array($_GET['filetype'],$picExt)) return false;
 
         $_G['uid'] = intval($_POST['uid']);
