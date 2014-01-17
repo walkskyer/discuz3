@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3.1]]></item>
+	<item id="Time"><![CDATA[2014-01-17 16:14]]></item>
+	<item id="From"><![CDATA[Discuz3测试！！ (http://discuz3.zwj/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[0]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[门户视频]]></item>
+			<item id="identifier"><![CDATA[walkskyer_portal_video]]></item>
+			<item id="description"><![CDATA[门户视频]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[walkskyer_portal_video/]]></item>
+			<item id="copyright"><![CDATA[walkskyer]]></item>
+			<item id="modules"><![CDATA[a:0:{}]]></item>
+			<item id="version"><![CDATA[v1.0]]></item>
+		</item>
+		<item id="version"><![CDATA[X3.1]]></item>
+	</item>
+</root>
