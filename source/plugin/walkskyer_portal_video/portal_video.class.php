@@ -29,17 +29,28 @@ class plugin_walkskyer_portal_video_portal extends plugin_walkskyer_portal_video
         <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.js" type="text/javascript"></script>
 <script type="text/javascript">
 var j = jQuery.noConflict();
+function createAttachBox(fn) {
+	if(typeof fn == 'function' && !fn()) {
+		return false;
+	}
+	var menu = $('icoAttach_attach_menu');
+	if(menu) {
+		if(menu.style.visibility == 'hidden') {
+			menu.style.visibility = 'visible';
+		} else {
+			menu.style.width = '600px';
+			showMenu({'ctrlid':'icoAttach_attach','mtype':'win','evt':'click','pos':'00','timeout':250,'duration':3,'drag':'icoAttach_attach_ctrl'});
+		}
+	}
+}
 j(document).ready(function(){
     j("a#ws_hello").click(function(){
-        var htmlEditor = j("#HtmlEditor").contents().find("body");
-        var html=j("body", window.frames["HtmlEditor"].document).html();
-        var a=1;
-        var s=htmlEditor.text();
-        var b=2;
+        var strimg1='hello';
+        edit_insert(strimg1);
     });
 });
 </script>
 EOF;
-        return $script.'<a>hello</a>';
+        return $script;
     }
 }
