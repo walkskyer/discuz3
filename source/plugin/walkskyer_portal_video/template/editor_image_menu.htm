@@ -1,0 +1,185 @@
+<!--{block return}-->
+
+<div id="ws_icoAttach_attach_menu" style="display: none" unselectable="on">
+	<table width="100%" cellpadding="0" cellspacing="0" class="fwin">
+		<tr>
+			<td class="t_l"></td>
+			<td class="t_c"></td>
+			<td class="t_r"></td>
+		</tr>
+		<tr>
+			<td class="m_l">&nbsp;&nbsp;</td>
+			<td class="m_c">
+				<div class="mtm mbm">
+					<ul class="tb tb_s cl" id="ws_icoAttach_attach_ctrl" style="margin-top:0;margin-bottom:0;">
+						<li class="y"><span class="flbc" onclick="ws_hideAttachMenu('ws_icoAttach_attach_menu')">{lang close}</span></li>
+						<li class="current" id="ws_icoAttach_btn_attachlist">?<a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('ws_attachlist');">{lang upload_attach}</a></li>
+					</ul>
+					<div class="p_opt post_tablelist" unselectable="on" id="ws_icoAttach_attachlist">
+						<div class="pbm bbda">
+							<span id="ws_spanButtonPlaceholder"></span>
+						</div>
+						<table cellpadding="0" cellspacing="0" border="0" width="100%" id="ws_attach_tblheader" class="mtn bbs" style="display: none;">
+							<tr>
+								<td class="atnu"></td>
+								<td class="atna pbn">{lang filename}</td>
+								<td class="atds pbn">{lang file_size}</td>
+								<td class="attc"></td>
+							</tr>
+						</table>
+						<div class="upfl">
+							<div id="ws_attachlist"></div>
+							<div class="fieldset flash" id="ws_fsUploadProgress"></div>
+						</div>
+						<div class="notice upnf">
+							<p id="ws_attach_notice">{lang click_filename_to_article}</p>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td class="m_r"></td>
+		</tr>
+		<tr>
+			<td class="b_l"></td>
+			<td class="b_c"></td>
+			<td class="b_r"></td>
+		</tr>
+	</table>
+</div>
+
+<iframe name="attachframe" id="ws_attachframe" style="display: none;"></iframe>
+
+<!--{if $_G['basescript'] == 'home' && empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend']) || $_G['basescript'] == 'portal' && empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])}-->
+	<script type="text/javascript">
+		var ws_attachUpload = new SWFUpload({
+			// Backend Settings
+			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
+
+			// File Upload Settings
+			file_size_limit : "$swfconfig[max]",	// 100MB
+			<!--{if $_G['basescript'] == 'portal'}-->
+			file_types : "$swfconfig[attachexts][ext]",
+			file_types_description : "$swfconfig[attachexts][depict]",
+			<!--{else}-->
+			file_types : "$swfconfig[imageexts][ext]",
+			file_types_description : "$swfconfig[imageexts][depict]",
+			<!--{/if}-->
+			file_upload_limit : 0,
+			file_queue_limit : 0,
+
+			// Event Handler Settings (all my handlers are in the Handler.js file)
+			swfupload_preload_handler : preLoad,
+			swfupload_load_failed_handler : loadFailed,
+			file_dialog_start_handler : fileDialogStart,
+			file_queued_handler : fileQueued,
+			file_queue_error_handler : fileQueueError,
+			file_dialog_complete_handler : fileDialogComplete,
+			upload_start_handler : uploadStart,
+			upload_progress_handler : uploadProgress,
+			upload_error_handler : uploadError,
+			upload_success_handler : uploadSuccess,
+			upload_complete_handler : uploadComplete,
+
+			// Button Settings
+			button_image_url : "{IMGDIR}/uploadbutton.png",
+			button_placeholder_id : "ws_spanButtonPlaceholder",
+			button_width: 100,
+			button_height: 25,
+			button_cursor:SWFUpload.CURSOR.HAND,
+			button_window_mode: "transparent",
+
+			custom_settings : {
+				progressTarget : "ws_fsUploadProgress",
+				uploadSource: 'portal',
+				uploadType: 'attach',
+				imgBoxObj: $('ws_attachlist')
+				//thumbnail_height: 400,
+				//thumbnail_width: 400,
+				//thumbnail_quality: 100
+			},
+
+			// Debug Settings
+			debug: false
+		});
+	</script>
+<!--{else}-->
+	<!--{if $_G['basescript'] == 'home'}-->
+		<!--{hook/spacecp_blog_upload_extend}-->
+	<!--{elseif $_G['basescript'] == 'portal'}-->
+		<!--{hook/portalcp_top_upload_extend}-->
+	<!--{/if}-->
+<!--{/if}-->
+<script type="text/javascript">
+	function ws_switchImagebutton(btn) {
+		switchButton(btn, 'image');
+		$('ws_icoImg_image_menu').style.height = '';
+		doane();
+	}
+	function ws_hideAttachMenu(id) {
+		if($(id)) {
+			$(id).style.visibility = 'hidden';
+		}
+	}
+
+	function ws_insertWWWImg() {
+		var urlObj = $('ws_icoImg_image_param_1');
+		if(urlObj.value != '') {
+			var widthObj = $('ws_icoImg_image_param_2');
+			var heightObj = $('ws_icoImg_image_param_3');
+			insertImage(urlObj.value, null, widthObj.value, heightObj.value);
+			urlObj.value = widthObj.value = heightObj.value = '';
+		}
+	}
+	//note 选择图片
+	function ws_picView(albumid, listid) {
+		if(albumid == 'none') {
+			$(listid).innerHTML = '';
+		} else {
+			ajaxget('home.php?mod=misc&ac=ajax&op=album&id='+albumid+'&ajaxdiv=albumpic_body', listid);
+		}
+	}
+	function ws_createNewAlbum() {
+		var inputObj = $('ws_newalbum');
+		if(inputObj.value == '' || inputObj.value == '{lang input_album_name}') {
+			inputObj.value = '{lang input_album_name}';
+		} else {
+			var x = new Ajax();
+			x.get('home.php?mod=misc&ac=ajax&op=createalbum&inajax=1&name=' + inputObj.value, function(s){
+				var aid = parseInt(s);
+				var albumList = $('ws_savealbumid');
+				var haveoption = false;
+				for(var i = 0; i < albumList.options.length; i++) {
+					if(albumList.options[i].value == aid) {
+						albumList.selectedIndex = i;
+						haveoption = true;
+						break;
+					}
+				}
+				if(!haveoption) {
+					var oOption = document.createElement("OPTION");
+					oOption.text = trim(inputObj.value);
+					oOption.value = aid;
+					albumList.options.add(oOption);
+					albumList.selectedIndex = albumList.options.length-1;
+				}
+				inputObj.value = ''
+			});
+			ws_selectCreateTab(1)
+		}
+	}
+	function ws_selectCreateTab(flag) {
+		var vwObj = $('ws_uploadPanel');
+		var opObj = $('ws_createalbum');
+		var selObj = $('ws_savealbumid');
+		if(flag) {
+			vwObj.style.display = '';
+			opObj.style.display = 'none';
+			selObj.value = selObj.options[0].value;
+		} else {
+			vwObj.style.display = 'none';
+			opObj.style.display = '';
+		}
+	}
+</script>
+<!--{/block}-->
