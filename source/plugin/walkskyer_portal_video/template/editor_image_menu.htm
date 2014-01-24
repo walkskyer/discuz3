@@ -53,7 +53,8 @@
 	<script type="text/javascript">
 		var ws_attachUpload = new SWFUpload({
 			// Backend Settings
-			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+			//upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+            upload_url: "{$_G[siteurl]}/source/plugin/walkskyer_portal_video/upload.php?id=walkskyer_portal_video:upload",
 			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
 
 			// File Upload Settings
