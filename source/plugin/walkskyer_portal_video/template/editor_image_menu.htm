@@ -58,7 +58,7 @@
                     var data = eval('('+serverData+')');
                     if(data.aid) {
                         if(this.customSettings.uploadType == 'attach') {
-                            ajaxget('portal.php?mod=attachment&op=getattach&type=attach&id=' + data.aid, file.id);
+                            ajaxget('source/plugin/walkskyer_portal_video/get_attach.php?mod=attachment&op=getattach&type=attach&id=' + data.aid, file.id);
                             if($('attach_tblheader')) {
                                 $('attach_tblheader').style.display = '';
                             }
