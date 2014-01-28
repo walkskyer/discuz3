@@ -6,6 +6,7 @@
 				<td class="attswf">
 					<p id="attach$attach[attachid]">
 						<span>$attach[filetype] <a href="javascript:;" class="xi2" id="attachname$attach[attachid]" isimage="{if $attach['isimage']}1{else}0{/if}" onclick="{if $attach['isimage']}insertImage('$bigimg'){else}insertFile('$attach[filename]', 'portal.php?mod=attachment&id=$attach['attachid']'){/if};doane(event);">{$attach[filename]}</a></span>
+                        {if $attach['ext']=='flv' }<span> <a href="javascript:;" class="xi2" id="attachname$attach[attachid]_insert" title="添加附件媒体播放代码" onclick="edit_insert('{$mediaString}');doane(event);"><img src="static/image/common/attachmediacode.gif"></a></span>{/if}
 					</p>
 				</td>
 				<td class="atds">$attach[filesize]</td>
