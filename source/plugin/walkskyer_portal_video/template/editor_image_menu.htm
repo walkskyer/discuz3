@@ -13,7 +13,7 @@
 				<div class="mtm mbm">
 					<ul class="tb tb_s cl" id="ws_icoAttach_attach_ctrl" style="margin-top:0;margin-bottom:0;">
 						<li class="y"><span class="flbc" onclick="ws_hideAttachMenu('ws_icoAttach_attach_menu')">{lang close}</span></li>
-						<li class="current" id="ws_icoAttach_btn_attachlist">?<a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('ws_attachlist');">{lang upload_attach}</a></li>
+						<li class="current" id="ws_icoAttach_btn_attachlist"><a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('ws_attachlist');">{lang upload_attach}</a></li>
 					</ul>
 					<div class="p_opt post_tablelist" unselectable="on" id="ws_icoAttach_attachlist">
 						<div class="pbm bbda">
@@ -50,7 +50,41 @@
 <iframe name="attachframe" id="ws_attachframe" style="display: none;"></iframe>
 
 <!--{if $_G['basescript'] == 'home' && empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend']) || $_G['basescript'] == 'portal' && empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])}-->
-	<script type="text/javascript">
+	<script>
+        function ws_uploadSuccess(file, serverData) {
+            try {
+                var progress = new FileProgress(file, this.customSettings.progressTarget);
+                if(this.customSettings.uploadSource == 'portal') {
+                    var data = eval('('+serverData+')');
+                    if(data.aid) {
+                        if(this.customSettings.uploadType == 'attach') {
+                            ajaxget('portal.php?mod=attachment&op=getattach&type=attach&id=' + data.aid, file.id);
+                            if($('attach_tblheader')) {
+                                $('attach_tblheader').style.display = '';
+                            }
+                        } else {
+                            var tdObj = getInsertTdId(this.customSettings.imgBoxObj, 'attach_list_'+data.aid);
+                            ajaxget('portal.php?mod=attachment&op=getattach&id=' + data.aid, tdObj.id);
+                            $(file.id).style.display = 'none';
+                        }
+                    } else {
+                        showDialog('上传失败', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
+                        progress.setStatus("Cancelled");
+                        this.cancelUpload(file.id);
+                        progress.setCancelled();
+                        progress.toggleCancel(true, this);
+                    }
+                } else {
+                    progress.setComplete();
+                    progress.setStatus("上传完成.");
+                    progress.toggleCancel(false);
+                }
+            } catch (ex) {
+                this.debug(ex);
+            }
+        }
+	</script>
+<script type="text/javascript">
 		var ws_attachUpload = new SWFUpload({
 			// Backend Settings
 			//upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
@@ -79,7 +113,7 @@
 			upload_start_handler : uploadStart,
 			upload_progress_handler : uploadProgress,
 			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
+			upload_success_handler : ws_uploadSuccess,
 			upload_complete_handler : uploadComplete,
 
 			// Button Settings

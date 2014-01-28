@@ -28,8 +28,8 @@ class plugin_walkskyer_portal_video_portal extends plugin_walkskyer_portal_video
         global $_G;
         require_once libfile('function/upload');
         $swfconfig = getuploadconfig($_G['uid'], 0, false);
-        $aid=$_GET['aid'];
-        $catid=$_GET['catid'];
+        $aid=$_GET['aid']?$_GET['aid']:0;
+        $catid=$_GET['catid']?$_GET['catid']:0;
         $script=<<<EOF
         <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.js" type="text/javascript"></script>
 <script type="text/javascript">

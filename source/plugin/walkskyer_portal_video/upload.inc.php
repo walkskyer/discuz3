@@ -44,7 +44,7 @@ if($aid) {
     }
 }
 $videoTypes=array('.flv');
-if(!in_array($_POST['filetype'],$videoTypes)) echo "{\"aid\":0, \"errorcode\":$errorcode}";
+//if(!in_array($_POST['filetype'],$videoTypes)) echo "{\"aid\":0, \"errorcode\":$errorcode}";
 $upload = new discuz_upload();
 $_FILES["Filedata"]['name'] = addslashes(diconv(urldecode($_FILES["Filedata"]['name']), 'UTF-8'));
 $upload->init($_FILES['Filedata'], 'portal');
