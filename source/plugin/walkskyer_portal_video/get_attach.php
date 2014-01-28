@@ -53,7 +53,7 @@ if($attach['ext']=='flv'){
     //$mediaString=str_replace('"','\"',$mediaString);
     //$mediaString=str_replace('\'','\\\'',$mediaString);
     //$mediaString=htmlentities($mediaString);
-    $mediaString="[flv,400,300]{$_G[setting][discuzurl]}/portal.php?mod=attachment&id={$attach['attachid']}[/flv]";
+    $mediaString="[media=flv,400,300]{$_G[setting][discuzurl]}/portal.php?mod=attachment&id={$attach['attachid']}[/media]";
 }
 //$mediaString='hello!!!!!';
 include template('walkskyer_portal_video:attachment');
