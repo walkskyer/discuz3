@@ -49,11 +49,7 @@ $attach['filesize'] = sizecount($attach['filesize']);
 //if($attach['filetype']) $mediaString="\"".addslashes(parsemedia(array($attach['ext'],400,300),"{$_G[siteurl]}portal.php?mod=attachment&id={$attach['attachid']}"))."\"";
 //if($attach['filetype']) $mediaString=parsemedia(array($attach['ext'],400,300),"{$_G[siteurl]}portal.php?mod=attachment&id={$attach['attachid']}");
 if($attach['ext']=='flv'){
-    //$mediaString=parsemedia(array($attach['ext'],400,300),"{$_G[siteurl]}portal.php?mod=attachment&id={$attach['attachid']}");
-    //$mediaString=str_replace('"','\"',$mediaString);
-    //$mediaString=str_replace('\'','\\\'',$mediaString);
-    //$mediaString=htmlentities($mediaString);
-    $mediaString="[media=flv,400,300]{$_G[setting][discuzurl]}/portal.php?mod=attachment&id={$attach['attachid']}[/media]";
+    $mediaString="[media=flv,400,300]{$attach['attachid']}[/media]";
 }
 //$mediaString='hello!!!!!';
 include template('walkskyer_portal_video:attachment');

@@ -75,7 +75,7 @@ if($article['contents'] && $article['showinnernav']) {
 require_once libfile('function/blog');
 $content['content'] = blog_bbcode($content['content']);
 require_once libfile('function/discuzcode');
-$content['content'] = preg_replace("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/ies", "parsemedia('\\1', '\\2')", $content['content']);
+$content['content'] = preg_replace("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/ies", "parsemedia('\\1', '{$_G[setting][discuzurl]}/portal.php?mod=attachment&id=\\2')", $content['content']);
 
 
 if(!empty($_G['setting']['makehtml']['flag']) && $article['htmlmade']) {
