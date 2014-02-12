@@ -6,7 +6,7 @@
  * Time: 上午10:49
  */
 define('APPTYPEID', 40001);
-define('CURSCRIPT', 'portal');
+define('CURSCRIPT', 'portal_play');
 
 require '../../../source/class/class_core.php';
 $discuz = C::app();

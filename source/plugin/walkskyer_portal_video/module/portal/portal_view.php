@@ -77,7 +77,7 @@ $content['content'] = blog_bbcode($content['content']);
 require_once libfile('function/discuzcode');
 //$playUrl="{$_G[setting][discuzurl]}/portal.php?mod=attachment&id=";
 $playUrl="{$_G[setting][discuzurl]}/source/plugin/walkskyer_portal_video/play.php?mod=attachment&id=";
-$content['content'] = preg_replace("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/ies", "parsemedia('\\1', '$playUrl\\2')", $content['content']);
+$content['content'] = preg_replace("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/ies", "parsemedia('\\1', '$playUrl\\2&_f=.flv')", $content['content']);
 
 
 if(!empty($_G['setting']['makehtml']['flag']) && $article['htmlmade']) {
