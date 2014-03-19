@@ -124,7 +124,7 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
 		<div class="bm bw0">
 			<h1 class="mbm bbs mt"><!--{if !empty($aid)}-->{lang walkskyer_push_article:article_edit}<!--{else}-->{lang walkskyer_push_article:article_publish}<!--{/if}--></h1>
 			<script type="text/javascript" src="{$_G[setting][jspath]}calendar.js?{VERHASH}"></script>
-			<form method="post" autocomplete="off" id="articleform" action="portal.php?mod=portalcp&ac=article{if $_GET[modarticlekey]}&modarticlekey=$_GET[modarticlekey]{/if}" enctype="multipart/form-data">
+			<form method="post" autocomplete="off" id="articleform" action="" enctype="multipart/form-data">
 				<!--{hook/portalcp_top}-->
 				<div class="dopt cl">
 					<span class="z mtn" style="width: 80px;">{lang walkskyer_push_article:article_title}:&nbsp;</span>
@@ -152,11 +152,9 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
 				<div class="exfm pns cl">
 					<div class="sinf sppoll z">
 						<dl>
-							<!--{if $_G['cache']['portalcategory'] && $categoryselect}-->
-								<dt>{lang walkskyer_push_article:article_category}</dt>
-								<dd><div class="ftid">$categoryselect</div><script type="text/javascript">simulateSelect('catid', 158);</script></dd>
-							<!--{/if}-->
-
+                            <select id="catid" class="ps vm" style="display: none;" selecti="0" name="catid">
+                                <option value=""></option>
+                            </select>
 							<dt>{lang walkskyer_push_article:article_source}</dt>
 							<dd>
 								<input type="text" id="from" name="from" class="px p_fre" value="$article[from]" {if $from_cookie}size="10"{else}size="30"{/if} />
@@ -215,10 +213,35 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
 				</div>
 
 				<div class="pbw">
-					<script type="text/javascript" language="javascript" src="{STATICURL}image/editor/editor_function.js?{VERHASH}"></script>
-					<!--{subtemplate home/editor_image_menu}-->
-					<textarea class="userData" name="content" id="uchome-ttHtmlEditor" style="height: 100%; width: 100%; display: none; border: 0px">$article_content[content]</textarea>
-					<div style="border:1px solid #C5C5C5;height:400px;"><iframe src="home.php?mod=editor&charset={CHARSET}&allowhtml=1&isportal=1" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:100%;height:100%;position:relative;"></iframe></div>
+                    <!--{eval $staticPath = 'source/plugin/walkskyer_push_article/static/js/kindeditor-4.1.10';}-->
+                    <link rel="stylesheet" href="{$staticPath}/themes/default/default.css" />
+                    <link rel="stylesheet" href={$staticPath}/plugins/code/prettify.css" />
+                    <script charset="utf-8" src="{$staticPath}/kindeditor.js"></script>
+                    <script charset="utf-8" src="{$staticPath}/lang/zh_CN.js"></script>
+                    <script charset="utf-8" src="{$staticPath}/plugins/code/prettify.js"></script>
+                    <script>
+                        KindEditor.ready(function(K) {
+                            var editor1 = K.create('textarea[name="content"]', {
+                                cssPath : '../plugins/code/prettify.css',
+                                uploadJson : '../php/upload_json.php',
+                                fileManagerJson : '../php/file_manager_json.php',
+                                allowFileManager : true,
+                                afterCreate : function() {
+                                    var self = this;
+                                    K.ctrl(document, 13, function() {
+                                        self.sync();
+                                        K('form[name=example]')[0].submit();
+                                    });
+                                    K.ctrl(self.edit.doc, 13, function() {
+                                        self.sync();
+                                        K('form[name=example]')[0].submit();
+                                    });
+                                }
+                            });
+                            prettyPrint();
+                        });
+                    </script>
+					<textarea class="userData" name="content" id="uchome-ttHtmlEditor" style="height: 100%; width: 99.8%; display: none; border: 0px">$article_content[content]</textarea>
 				</div>
 
 				<!--{hook/portalcp_middle}-->
