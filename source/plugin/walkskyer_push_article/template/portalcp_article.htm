@@ -178,16 +178,30 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
                     <!--{eval $staticPath = 'source/plugin/walkskyer_push_article/static/js/kindeditor-4.1.10';}-->
                     <link rel="stylesheet" href="{$staticPath}/themes/default/default.css" />
                     <link rel="stylesheet" href={$staticPath}/plugins/code/prettify.css" />
-                    <script charset="utf-8" src="{$staticPath}/kindeditor.js"></script>
+                    <script charset="utf-8" src="{$staticPath}/kindeditor-all-min.js"></script>
                     <script charset="utf-8" src="{$staticPath}/lang/zh_CN.js"></script>
                     <script charset="utf-8" src="{$staticPath}/plugins/code/prettify.js"></script>
                     <script>
                         KindEditor.ready(function(K) {
                             var editor1 = K.create('textarea[name="content"]', {
-                                cssPath : '../plugins/code/prettify.css',
-                                uploadJson : '../php/upload_json.php',
-                                fileManagerJson : '../php/file_manager_json.php',
-                                allowFileManager : true,
+                                //cssPath : '../plugins/code/prettify.css',
+                                //uploadJson : '../php/upload_json.php',
+                                //fileManagerJson : '../php/file_manager_json.php',
+                                //allowFileManager : true,
+                                items : [
+                                     'justifyleft', 'justifycenter', 'justifyright',
+                                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                                    'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'formatblock', 'fontname',
+                                    'fontsize', '|', 'forecolor', 'hilitecolor', 'bold','italic', 'underline', 'strikethrough',
+                                    'lineheight', 'removeformat', '|','fullscreen', '/',
+                                     'image','flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                                    'anchor', 'link', 'unlink', '|','preview', 'print', 'cut', 'copy', 'paste',
+                                    'plainpaste', 'wordpaste', '|', 'undo', 'redo', '|','source'
+                                ],
+                                allowImageUpload : false,
+                                allowFlashUpload : false,
+                                allowMediaUpload : false,
+                                allowFileUpload : false,
                                 afterCreate : function() {
                                     var self = this;
                                     K.ctrl(document, 13, function() {
@@ -203,7 +217,7 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
                             prettyPrint();
                         });
                     </script>
-					<textarea class="userData" name="content" id="uchome-ttHtmlEditor" style="height: 100%; width: 99.8%; display: none; border: 0px">$article_content[content]</textarea>
+					<textarea class="userData" name="content" id="uchome-ttHtmlEditor" style="height: 400px; width: 99.8%; display: none; border: 0px">$article_content[content]</textarea>
 				</div>
 
 				<!--{hook/portalcp_middle}-->
