@@ -17,6 +17,7 @@ if(!empty($_POST) && isset($_POST['title'])){
     //var_dump($_POST);
     $data=$_POST;
     $data['dateline'] = strtotime($data['dateline']);
+    $params['ws_catid'] = intval($params['ws_catid']) > 0? intval($params['ws_catid']): 0;
     if($data['catid'] != $params['ws_catid'] || empty($params['ws_catid'])){
         showmessage('文章发布功能配置错误或您的提交的数据有问题，请联系管理员。');
     }
@@ -45,6 +46,9 @@ if(!empty($_POST) && isset($_POST['title'])){
         showmessage('文章发布成功，等待管理员审核','/plugin.php?id=walkskyer_push_article');
     }
 }
+$catid = intval($_GET['catid']);
+$article = array();
 loadcache('portalcategory');
-var_dump($_G['cache']['portalcategory']);
+require_once libfile('function/portalcp');
+$categoryselect = category_showselect('portal', 'catid', true, !empty($article['catid']) ? $article['catid'] : $catid);
 @include template(MYS.':portalcp_article');

@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3.1]]></item>
-	<item id="Time"><![CDATA[2014-03-21 11:18]]></item>
+	<item id="Time"><![CDATA[2014-03-21 17:20]]></item>
 	<item id="From"><![CDATA[Discuz3测试！！ (http://discuz3.zwj/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -36,10 +36,10 @@
 			<item id="0">
 				<item id="displayorder"><![CDATA[0]]></item>
 				<item id="title"><![CDATA[投稿频道]]></item>
-				<item id="description"><![CDATA[选定门户的一个可用频道，稿件将存放到此频道。]]></item>
+				<item id="description"><![CDATA[选定门户的一个可用频道，稿件将存放到此频道。若设置为0则投稿用户可自行选择投稿频道。]]></item>
 				<item id="variable"><![CDATA[ws_catid]]></item>
 				<item id="type"><![CDATA[number]]></item>
-				<item id="value"><![CDATA[2]]></item>
+				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 		</item>

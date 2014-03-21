@@ -152,17 +152,14 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
 				<div class="exfm pns cl">
 					<div class="sinf sppoll z">
 						<dl>
-                            <dt>{lang walkskyer_push_article:article_category}</dt>
-                            <dd>
-                                <select id="catid" class="ps vm" selecti="0" name="catid">
-                                    <!--{loop $_G['cache']['portalcategory'] $category}-->
-                                    <option value="{$category['catid']}">{$category['catname']}</option>
-                                    <!--{/loop}-->
+                            <!--{if $_G['cache']['portalcategory'] && $categoryselect && empty($params['ws_catid'])}-->
+                                <dt>{lang walkskyer_push_article:article_category}</dt>
+                                <dd><div class="ftid">$categoryselect</div><script type="text/javascript">simulateSelect('catid', 158);</script></dd>
+                            <!--{else}-->
+                                <select id="catid" class="ps vm" style="display: none;" selecti="0" name="catid">
+                                    <option value="{$params['ws_catid']}"></option>
                                 </select>
-                            </dd>
-                            <!--<select id="catid" class="ps vm" style="display: none;" selecti="0" name="catid">
-                                <option value="{$params['ws_catid']}"></option>
-                            </select>-->
+                            <!--{/if}-->
 							<dt>{lang walkskyer_push_article:article_dateline}</dt>
 							<dd><input type="text" name="dateline" class="px p_fre" value="$article[dateline]" size="30" onclick="showcalendar(event, this, true)" /></dd>
 
