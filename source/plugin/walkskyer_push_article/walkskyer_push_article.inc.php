@@ -18,7 +18,7 @@ if(!empty($_POST) && isset($_POST['title'])){
     $data=$_POST;
     $data['dateline'] = strtotime($data['dateline']);
     $params['ws_catid'] = intval($params['ws_catid']) > 0? intval($params['ws_catid']): 0;
-    if($data['catid'] != $params['ws_catid'] || empty($params['ws_catid'])){
+    if($data['catid'] <=0){
         showmessage('文章发布功能配置错误或您的提交的数据有问题，请联系管理员。');
     }
     $art_title = array(
