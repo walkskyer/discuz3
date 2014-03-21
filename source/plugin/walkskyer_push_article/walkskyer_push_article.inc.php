@@ -17,6 +17,9 @@ if(!empty($_POST) && isset($_POST['title'])){
     //var_dump($_POST);
     $data=$_POST;
     $data['dateline'] = strtotime($data['dateline']);
+    if($data['catid'] != $params['ws_catid'] || empty($params['ws_catid'])){
+        showmessage('文章发布功能配置错误或您的提交的数据有问题，请联系管理员。');
+    }
     $art_title = array(
         'title' => htmlspecialchars($data['title']),
         'highlight' => implode('|', $data['highlight_style']),
