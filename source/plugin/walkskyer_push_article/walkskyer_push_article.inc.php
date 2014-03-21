@@ -36,5 +36,6 @@ if(!empty($_POST) && isset($_POST['title'])){
         'pageorder'=>1,
     );
     C::t('portal_article_content')->insert($art_content);
+    showmessage('文章发布成功，等待管理员审核','/plugin.php?id=walkskyer_push_article');
 }
 @include template(MYS.':portalcp_article');
