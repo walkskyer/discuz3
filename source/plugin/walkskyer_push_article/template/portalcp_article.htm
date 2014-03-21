@@ -152,9 +152,17 @@ make_html('portal.php?mod=view&aid={$aid}', $('makehtml_'));
 				<div class="exfm pns cl">
 					<div class="sinf sppoll z">
 						<dl>
-                            <select id="catid" class="ps vm" style="display: none;" selecti="0" name="catid">
+                            <dt>{lang walkskyer_push_article:article_category}</dt>
+                            <dd>
+                                <select id="catid" class="ps vm" selecti="0" name="catid">
+                                    <!--{loop $_G['cache']['portalcategory'] $category}-->
+                                    <option value="{$category['catid']}">{$category['catname']}</option>
+                                    <!--{/loop}-->
+                                </select>
+                            </dd>
+                            <!--<select id="catid" class="ps vm" style="display: none;" selecti="0" name="catid">
                                 <option value="{$params['ws_catid']}"></option>
-                            </select>
+                            </select>-->
 							<dt>{lang walkskyer_push_article:article_dateline}</dt>
 							<dd><input type="text" name="dateline" class="px p_fre" value="$article[dateline]" size="30" onclick="showcalendar(event, this, true)" /></dd>
 

@@ -45,4 +45,6 @@ if(!empty($_POST) && isset($_POST['title'])){
         showmessage('文章发布成功，等待管理员审核','/plugin.php?id=walkskyer_push_article');
     }
 }
+loadcache('portalcategory');
+var_dump($_G['cache']['portalcategory']);
 @include template(MYS.':portalcp_article');
