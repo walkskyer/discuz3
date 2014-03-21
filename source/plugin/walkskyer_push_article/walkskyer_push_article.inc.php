@@ -32,13 +32,17 @@ if(!empty($_POST) && isset($_POST['title'])){
         'status' => 1,
     );
     $art_aid=C::t('portal_article_title')->insert($art_title,true);
-    $art_content=array(
-        'aid'=> $art_aid,
-        'title'=> $art_title['title'],
-        'content' => $data['content'],
-        'pageorder'=>1,
-    );
-    C::t('portal_article_content')->insert($art_content);
-    showmessage('文章发布成功，等待管理员审核','/plugin.php?id=walkskyer_push_article');
+    if($art_aid){
+        C::t('portal_category')->increase($params['ws_catid'],array('articles'=>1));
+        C::t('common_moderate')->insert('aid',array('id'=>$art_aid,'dateline'=>time()));
+        $art_content=array(
+            'aid'=> $art_aid,
+            'title'=> $art_title['title'],
+            'content' => $data['content'],
+            'pageorder'=>1,
+        );
+        C::t('portal_article_content')->insert($art_content);
+        showmessage('文章发布成功，等待管理员审核','/plugin.php?id=walkskyer_push_article');
+    }
 }
 @include template(MYS.':portalcp_article');
